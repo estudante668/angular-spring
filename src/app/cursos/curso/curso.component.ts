@@ -3,6 +3,7 @@ import { Curso } from '../../curso/objetos/curso';
 import { MatTableModule } from '@angular/material/table'; 
 import { CursoService } from '../../servicos/curso.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-curso',
@@ -14,11 +15,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 export class CursoComponent {
   
   displayedColumns: string[] = ['nome', 'curso'];
-  cursos: Curso[] = [];
-  servicosCursos: CursoService;
+  cursos: Observable<Curso[]>;
+
   
-  constructor(){
-    this.servicosCursos = new CursoService();
+  constructor(private servicosCursos: CursoService){
+    //this.servicosCursos = new CursoService();
     this.cursos = this.servicosCursos.listaUsuarios();
   }
 

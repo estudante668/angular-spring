@@ -1,0 +1,5 @@
+[
+    {"id":"1", "nome":"Marcio", "categoria": "Geografia"},
+    {"id":"2", "nome":"Carla", "categoria": "Veterinaria"},
+    {"id":"3", "nome":"Geraldo", "categoria": "Eng.Civil"}
+]

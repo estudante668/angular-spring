@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Curso } from '../curso/objetos/curso';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CursoService {
 
-  cursos: Curso[] = [
-    {id:'1', nome:'Marcio', categoria: 'Veterinaria'},
-    {id:'2', nome:'Julia', categoria: 'Eng.Quimica'},
-    {id:'3', nome:'Carla', categoria: 'Farmacia'},
-  ];
-  constructor() { }
+  private readonly API = '/assets/objeto.json'
+ 
+  constructor(private http: HttpClient) { }
 
-  listaUsuarios(): Curso[]{
-    return this.cursos;
+  listaUsuarios(){
+    return this.http.get<Curso[]>(this.API);
   }
 }
